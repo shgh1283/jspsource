@@ -6,17 +6,17 @@
 	<label for="userid" class="col-sm-2 col-form-label">아이디</label>
 	<div class="col-sm-10">
 		<input type="text" class="form-control" id="userid" name="userid"
-			value="<%=loginDto.getUserid()%>" readonly>
+			value="${loginDto.userid}" readonly>
 	</div>
 </div>
 <div class="row mb-3">
 	<label for="name" class="col-sm-2 col-form-label">이름</label>
 	<div class="col-sm-10">
 		<input type="text" class="form-control" id="name" name="name"
-			value="<%=loginDto.getName()%>" readonly>
+			value="${loginDto.name}" readonly>
 	</div>
 </div>
-<form method="post" action="info_pro.jsp">
+<form method="post" action="/info.do">
 	<div class="row mb-3">
 		<label for="current_password" class="col-sm-2 col-form-label">현재
 			비밀번호</label>
@@ -35,6 +35,6 @@
 	</div>
 	<button type="submit" class="btn btn-secondary">비밀번호 변경</button>
 	<button type="button" class="btn btn-primary">도서목록</button>
-	<input type="hidden" name="userid" value="<%=loginDto.getUserid()%>">
+	<input type="hidden" name="userid" value="${loginDto.userid}">
 </form>
 <%@ include file="../include/footer.jsp"%>

@@ -1,5 +1,6 @@
 package action;
 
+import java.net.URLEncoder;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -11,7 +12,7 @@ import serivce.BookService;
 import serivce.BookServiceImpl;
 
 @AllArgsConstructor
-public class BookReadAction implements Action {
+public class BookDeleteAction implements Action {
 	
 	private String path;
 	
@@ -19,16 +20,18 @@ public class BookReadAction implements Action {
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		// 1.
 		int code =Integer.parseInt(request.getParameter("code"));
-		String keyword =request.getParameter("keyword");
+		String keyword = request.getParameter("keyword");
 		// 2. service 호출
 		BookService service = new BookServiceImpl();
-		BookDTO dto = service.read(code);
-
-		request.setAttribute("dto", dto);
-		request.setAttribute("keyword", keyword);
+		boolean deleteFlag = service.delete(code);
 		
-		// (request.setAttribute)=> forward => false
-		return new ActionForward(path, false);
+		if(!deleteFlag) {
+			path ="/modify.do?code="+code;
+		} else {
+			path+= "?keyword="+URLEncoder.encode(keyword,"utf-8");
+		}
+		
+		return new ActionForward(path, true);
 	}
 
 }
