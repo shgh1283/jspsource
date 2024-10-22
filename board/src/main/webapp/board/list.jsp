@@ -24,7 +24,14 @@
 					<c:forEach var="dto" items="${list}">
 						<tr>
 							<td>${dto.bno}</td>
-							<td><a href="${dto.bno}" class="text-decoration-none text-reset">${dto.title}</a></td>
+							<td>
+							<c:if test="${dto.reLev!=0}">
+								<c:forEach begin="0" end="${dto.reLev*1}">
+								&nbsp;
+								</c:forEach>
+							</c:if>
+							<a href="${dto.bno}" class="text-decoration-none text-reset">${dto.title}</a>
+							</td>
 							<td>${dto.regdate}</td>
 							<td>${dto.name}</td>
 							<td>${dto.readcnt}</td>
@@ -34,11 +41,17 @@
 				</table>
 			</div>
 			<div class="row">
-			<div class ="col-sm-12 col-md-7">
-				<ul class="pagination">
-					<li class="paginate_btton page-item previous"></li>
-					<li class="paginate_btton page-item"></li>
-					<li class="paginate_btton page-item next"></li>
+			<div class ="col-sm-12 col-md-12">
+				<ul class="pagination justify-content-center">
+					<li class="paginate_button page-item previous">
+					<a href="" class="page-link">previous</a>
+					</li>
+					<li class="paginate_button page-item">
+						<a href="" class="page-link">1</a>
+						</li>
+					<li class="paginate_button page-item next">
+						<a href="" class="page-link">next</a>
+					</li>
 				</ul>
 			</div>
 			</div>

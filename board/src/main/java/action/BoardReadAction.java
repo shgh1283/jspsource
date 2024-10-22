@@ -18,6 +18,8 @@ public class BoardReadAction implements Action {
 		int bno =Integer.parseInt(request.getParameter("bno"));
 		
 		BoardService service = new BoardServiceImpl();
+		// 조회수 업데이트
+		
 		BoardDTO dto = service.getRow(bno);
 
 		request.setAttribute("dto", dto);

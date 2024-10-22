@@ -15,7 +15,7 @@
 		</div>
 		<div class="form-group">
 			<label for="content">내용</label>
-			<textarea type="text" class="form-control" id="content"
+			<textarea row="10" class="form-control" id="content"
 				name="content">${dto.content}</textarea>
 		</div>
 		<div class="form-group">
@@ -24,7 +24,7 @@
 		</div>
 		<div class="form-group">
 			<label for="password">비밀번호</label> <input type="password" class="form-control"
-				id="password" name="password" required="required">
+				id="password" name="password">
 		</div>
 		<div class="form-group">
 			<label for="attach">첨부파일</label>
